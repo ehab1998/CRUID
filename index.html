@@ -1,0 +1,132 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index_style.css">
+</head>
+
+<body>
+
+    
+
+
+    <div class="container py-5 inputs" id="addProductBtnAppear">
+        
+    <!-- our input tags  -->
+    <i id='close' onclick="hideProducts()" class="far fa-times-circle"></i>
+
+
+        <i id='close' onclick="hideProducts()" class="far fa-times-circle"></i>
+        <div class="row m-2">
+
+            <div class="form-group col-md-6 py-3">
+            <label>productName :</label>
+            <input id="productNameInp" type="text" class="my-1 form-control">
+        </div>
+
+
+
+        <div class="form-group col-md-6 py-3 fade-right">
+            <label>productPrice :</label>
+            <input id="productPriceInp" type="number" class="my-1 form-control">
+        </div>
+
+
+
+        <div class="form-group col-md-6 py-3">
+            <label>productCategory :</label>
+            <input id="productCategoryInp" type="text" class="my-1 form-control">
+        </div>
+
+
+
+        <div class="form-group col-md-6 py-3">
+            <label>productDesc :</label>
+            <textarea id="productDescInp" type="text" class="my-1 form-control">
+                </textarea>
+
+        </div>
+        </div>
+        <button onclick="addProduct()" id="addBtn" class="btn btn-info">add</button>
+    </div>
+
+<!-- our buttons -->
+    <div class="container ">
+        <div class="row justify-content-center align-items-center vh-100 bg-danger">
+            <button onclick="displayTable()" class="btn btn-secondary m-2">display Products</button>
+            <button onclick="searchBtnAction()" class="btn btn-outline-warning m-2"> Search about Product<i class="fa fa-search px-2"></i></button>
+            <button onclick="addProductBtnAction()" class="btn btn-info m-2">add Product</button>
+            <button onclick="updateBtnAction()" class="btn btn-warning m-2">update Product</button>
+        
+        </div>
+    </div>
+
+    
+
+    <div class="appearing" id="appearProducts">
+        
+        <i id='close' onclick="hideProducts()" class="far fa-times-circle"></i>
+        <!-- search input -->
+        <div class=" my-5" id="searchbtn">
+            <div class="py-3">
+
+                <input onkeyup="searchProducts(this.value)" placeholder="search" class="form-control">
+                    <div id="searchResult"></div>
+                </div>
+        </div>
+
+        <!-- table that hold products -->
+        
+            <table class="table text-center  ">
+                <thead>
+                    <th>index </th>
+                    <th>ProductName </th>
+                    <th>ProductPrice </th>
+                    <th>ProductCategory </th>
+                    <th>ProductDesc </th>
+                    <th>update </th>
+                    <th>delete </th>
+    
+                </thead>
+                <tbody id="tableBody">
+    
+    
+                </tbody>
+            </table>
+        
+    </div>
+
+    <script>
+        let appearProducts = document.getElementById('appearProducts');
+        let addProductBtnAppear=document.getElementById("addProductBtnAppear");
+        function displayTable(){
+            appearProducts.style.display="flex";
+        }
+        function hideProducts()
+        {
+            appearProducts.style.display="none";
+            addProductBtnAppear.style.display="none";
+            searchbtn.style.display='none';
+        }
+        let searchbtn=document.getElementById("searchbtn");
+        function searchBtnAction(){
+            searchbtn.style.display='block';
+            appearProducts.style.display="block";
+        }
+        
+        function addProductBtnAction(){
+            addProductBtnAppear.style.display="block"
+        }
+        function updateBtnAction(){
+            addProductBtnAppear.style.display="block";
+            appearProducts.style.display="flex";
+        }
+    </script>
+
+    <script src="js/index.js"></script>
+
+
+</body>
+
+</html>
